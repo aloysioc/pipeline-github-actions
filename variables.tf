@@ -9,8 +9,3 @@ variable "aws_pub_key" {
   type = string
 }
 
-variable "azure_pub_key" {
-  description = "Public key para VM na Azure"
-  type = string
-}
-
