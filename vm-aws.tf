@@ -1,5 +1,5 @@
 resource "aws_key_pair" "key" {
-  key_name   = "aws-key"
+  key_name   = "CE-Mapfre"
   public_key = var.aws_pub_key
 }
 
