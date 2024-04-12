@@ -1,7 +1,7 @@
 variable "location" {
   description = "Define região onde os recursos serão criados"
   type        = string
-  default     = "West Europe"
+  default     = "N. Virginia"
 }
 
 variable "aws_pub_key" {

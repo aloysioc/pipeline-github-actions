@@ -15,30 +15,29 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-    resource_group_name  = "remote-state"
-    storage_account_name = "aacfremotestate"
-    container_name       = "remote-state"
-    key                  = "pipeline-github-actions/terraform.tfstate"
+  backend "s3" {
+    bucket = "ce-remote-state"
+    key    = "ce/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
-provider "azurerm" {
-  features {}
-}
+# provider "azurerm" {
+#   features {}
+# }
 
-data "terraform_remote_state" "vnet" {
-  backend = "azurerm"
-  config = {
-    resource_group_name  = "remote-state"
-    storage_account_name = "aacfremotestate"
-    container_name       = "remote-state"
-    key                  = "azure-vnet/terraform.tfstate"
-  }
-}
+# data "terraform_remote_state" "vnet" {
+#   backend = "azurerm"
+#   config = {
+#     resource_group_name  = "remote-state"
+#     storage_account_name = "aacfremotestate"
+#     container_name       = "remote-state"
+#     key                  = "azure-vnet/terraform.tfstate"
+#   }
+# }
 
 provider "aws" {
-  region = "sa-east-1"
+  region = "us-east-1"
 
   default_tags {
     tags = {
@@ -51,8 +50,8 @@ provider "aws" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "aloysioc-remote-state"
-    key    = "aws-vpc/terraform.tfstate"
-    region = "sa-east-1"
+    bucket = "ce-remote-state"
+    key    = "ce/aws-vpc/terraform.tfstate"
+    region = "us-east-1"
   }
 }
