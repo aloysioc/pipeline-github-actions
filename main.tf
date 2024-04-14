@@ -17,7 +17,7 @@ terraform {
 
   backend "s3" {
     bucket = "ce-mapfre"
-    key    = "ce/terraform.tfstate"
+    key    = "ce/aws-vm/terraform.tfstate"
     region = "us-east-1"
   }
 }
@@ -43,6 +43,7 @@ provider "aws" {
     tags = {
       owner      = "Aloysio Coutinho"
       managed-by = "terraform"
+      projeto = "CE Mapfre"
     }
   }
 }
