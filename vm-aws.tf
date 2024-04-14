@@ -3,7 +3,7 @@ resource "aws_instance" "ce_instance" {
   instance_type               = "t2.micro"       # Tipo de instância
   key_name                    = "CE-Mapfre-GA"      # Nome da chave SSH
   subnet_id                   = data.terraform_remote_state.vpc.outputs.subnet_id
-  vpc_security_group_ids      = [data.terraform_remote_state.vpc.outputs.security_group_ids]
+  vpc_security_group_ids      = [data.terraform_remote_state.vpc.outputs.security_group_id]
   iam_instance_profile        = "SSM-Access" # Role de acesso
   associate_public_ip_address = true         # Habilitar IP público  
 
