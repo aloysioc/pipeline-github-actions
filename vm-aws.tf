@@ -4,9 +4,9 @@ resource "aws_key_pair" "key" {
 }
 
 resource "aws_instance" "ce_instance" {
-  ami           = var.ami_win_virg # ID da AMI do RHEL 9
-  instance_type = "t2.micro"              # Tipo de instância
-  key_name      = "CE-Mapfre"               # Nome da chave SSH
+  ami                         = var.ami_win_virg # ID da AMI do RHEL 9
+  instance_type               = "t2.micro"       # Tipo de instância
+  key_name                    = "CE-Mapfre"      # Nome da chave SSH
   subnet_id                   = data.terraform_remote_state.vpc.outputs.subnet_id
   vpc_security_group_ids      = [data.terraform_remote_state.vpc.outputs.security_group_ids]
   iam_instance_profile        = "SSM-Access" # Role de acesso

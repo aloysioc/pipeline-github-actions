@@ -9,7 +9,7 @@ terraform {
     #   version = "3.3.0"
     # }
 
-    aws={
+    aws = {
       source  = "hashicorp/aws"
       version = "4.11.0"
     }
@@ -43,7 +43,7 @@ provider "aws" {
     tags = {
       owner      = "Aloysio Coutinho"
       managed-by = "terraform"
-      projeto = "CE Mapfre"
+      projeto    = "CE Mapfre"
     }
   }
 }
