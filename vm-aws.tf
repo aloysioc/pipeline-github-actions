@@ -1,8 +1,3 @@
-resource "aws_key_pair" "key" {
-  key_name   = "CE-Mapfre"
-  public_key = file("./CE-Mapfre.pub")
-}
-
 resource "aws_instance" "ce_instance" {
   ami                         = var.ami_win_virg # ID da AMI do RHEL 9
   instance_type               = "t2.micro"       # Tipo de instância
