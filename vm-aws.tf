@@ -20,7 +20,7 @@ resource "aws_instance" "ce_instance" {
               EOF
 
   tags = {
-    Name = "CE-Mapfre-W2K19"
-    projeto    = "CE Mapfre"
+    Name    = "CE-Mapfre-W2K19"
+    projeto = "CE Mapfre"
   }
 }
