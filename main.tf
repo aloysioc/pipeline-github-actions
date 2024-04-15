@@ -1,6 +1,6 @@
 terraform {
 
-  required_version = ">= 1.0.0"
+  required_version = "~>= 1.0"
 
   required_providers {
 
@@ -11,12 +11,12 @@ terraform {
 
     aws = {
       source  = "hashicorp/aws"
-      version = "4.11.0"
+      version = "~> 5.0"
     }
   }
 
   backend "s3" {
-    bucket = "ce-mapfre"
+    bucket = "mapfre-tfenabled"
     key    = "ce/aws-vm/terraform.tfstate"
     region = "us-east-1"
   }
@@ -51,7 +51,7 @@ provider "aws" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "ce-mapfre"
+    bucket = "mapfre-tfenabled"
     key    = "ce/aws-vpc/terraform.tfstate"
     region = "us-east-1"
   }
