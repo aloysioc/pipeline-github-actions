@@ -21,5 +21,6 @@ resource "aws_instance" "ce_instance" {
 
   tags = {
     Name = "CE-Mapfre-W2K19"
+    projeto    = "CE Mapfre"
   }
 }
